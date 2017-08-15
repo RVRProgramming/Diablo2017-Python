@@ -4,13 +4,12 @@ from commandbased import CommandBasedRobot
 from hal_impl.data import hal_data
 import wpilib
 
-from commands.groupDriveStraight import GroupDriveStraight
-from commands.teleDrive import TeleDrive
-from common.oi import oi
-
 class MyRobot(CommandBasedRobot):
     
     def robotInit(self):
+        from common.oi import oi
+        from commands.groupDriveStraight import GroupDriveStraight
+        from commands.teleDrive import TeleDrive
         self.teleDrive = TeleDrive()
         self.autonomousCommand = GroupDriveStraight()
         # Forced Initializing PWM from hal_data
