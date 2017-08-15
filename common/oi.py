@@ -17,7 +17,6 @@ class OI():
         self.winchToggle = JoystickButton(self.joystick, robotMap.WINCHTOGGLE)
         from commands import teleClimb
         self.winchToggle.toggleWhenPressed(teleClimb.TeleClimb())
-        
     def getLeftSpeed(self):
         return self.gamepad.getRawAxis(robotMap.LEFTDRIVECONTROL)
         

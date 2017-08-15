@@ -10,13 +10,11 @@ class Winch(Subsystem):
     def __init__(self):
         super().__init__()
         self.winchL = ctre.CANTalon(robotMap.WINCHL)
-        print("winch l created")
         self.winchR = ctre.CANTalon(robotMap.WINCHR)
-        print("winch r created")
         self.led = wpilib.Relay(robotMap.LED)
 
     def climb(self, speed):
-        if ((speed < -robotMap.WINCHTHRESHOLD or speed > robotMap.WINCHTHRESHOLD) and wpilib.DriverStation.isOperatorControl()):
+        if ((speed < -robotMap.WINCHTHRESHOLD or speed > robotMap.WINCHTHRESHOLD) and wpilib.DriverStation.isOperatorControl(self)):
             self.winchL.set(speed)
             self.winchR.set(-speed)
         else:
