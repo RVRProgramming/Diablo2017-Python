@@ -8,12 +8,16 @@ from commands.groupDriveStraight import GroupDriveStraight
 from commands.teleDrive import TeleDrive
 from common.oi import oi
 
-
 class MyRobot(CommandBasedRobot):
     
     def robotInit(self):
         self.teleDrive = TeleDrive()
         self.autonomousCommand = GroupDriveStraight()
+        # Forced Initializing PWM from hal_data
+        hal_data['pwm'][0]['initialized'] = True
+        hal_data['pwm'][1]['initialized'] = True
+        hal_data['pwm'][2]['initialized'] = True
+        hal_data['pwm'][3]['initialized'] = True
         pprint.pprint(hal_data)
     def autonomousInit(self):
         self.autonomousCommand.start()
