@@ -4,19 +4,17 @@ from commandbased import CommandBasedRobot
 from hal_impl.data import hal_data
 import wpilib
 
+
 class MyRobot(CommandBasedRobot):
-    
+        
     def robotInit(self):
-        from common.oi import oi
         from commands.groupDriveStraight import GroupDriveStraight
         from commands.teleDrive import TeleDrive
-        self.teleDrive = TeleDrive()
+        from common.oi import oi
         self.autonomousCommand = GroupDriveStraight()
-        # Forced Initializing PWM from hal_data
-        hal_data['pwm'][0]['initialized'] = True
-        hal_data['pwm'][1]['initialized'] = True
-        hal_data['pwm'][2]['initialized'] = True
-        hal_data['pwm'][3]['initialized'] = True
+        self.teleDrive = TeleDrive()
+        self.oi = oi
+        
         pprint.pprint(hal_data)
     def autonomousInit(self):
         self.autonomousCommand.start()
@@ -26,7 +24,7 @@ class MyRobot(CommandBasedRobot):
         self.autonomousCommand.cancel()
         self.teleDrive.start()
     def teleopPeriodic(self):
-        oi.backwardsCheck();
+        self.oi.backwardsCheck();
     def testInit(self):
         pass
     def testPeriodic(self):
