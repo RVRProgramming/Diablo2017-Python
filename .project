@@ -3,6 +3,7 @@
 	<name>Command-Python-Code-2017</name>
 	<comment></comment>
 	<projects>
+		<project>New-Auto-Selector</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
