@@ -26,7 +26,7 @@ class OI():
     def backwardsCheck(self):
         if (self.backwardsButton and not self.gamepad.getRawButton(robotMap.REVERSE)):
             self.backwardsButton = False
-        elif (not self.backwardsButton and self.gamepad.getRawButton(robotMap.REVERSE)) :
+        elif (not self.backwardsButton and self.gamepad.getRawButton(robotMap.REVERSE)):
             self.backwardsButton = True
             self.backwardsToggle = not self.backwardsToggle
 
