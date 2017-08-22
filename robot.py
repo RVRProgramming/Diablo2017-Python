@@ -5,7 +5,7 @@ import wpilib
 class MyRobot(CommandBasedRobot):
         
     def robotInit(self):
-        CommandBasedRobot.robotInit(self)
+        super().__init__()
         from commands.groupDriveStraight import GroupDriveStraight
         from commands.teleDrive import TeleDrive
         from common.oi import oi
@@ -13,21 +13,21 @@ class MyRobot(CommandBasedRobot):
         self.teleDrive = TeleDrive()
         self.oi = oi
     def autonomousInit(self):
-        CommandBasedRobot.autonomousInit(self)
+        super().autonomousInit()
         self.autonomousCommand.start()
     def autonomousPeriodic(self):
-        CommandBasedRobot.autonomousPeriodic(self)
+        super().autonomousPeriodic()
     def teleopInit(self):
-        CommandBasedRobot.teleopInit(self)
+        super().teleopInit()
         self.autonomousCommand.cancel()
         self.teleDrive.start()
     def teleopPeriodic(self):
-        CommandBasedRobot.teleopPeriodic(self)
+        super().teleopPeriodic()
         self.oi.backwardsCheck();
     def testInit(self):
-        CommandBasedRobot.testInit(self)
+        super().testInit()
     def testPeriodic(self):
-        CommandBasedRobot.testPeriodic(self)
+        super().testPeriodic()
 
 if __name__ == '__main__':
     wpilib.run(MyRobot)
