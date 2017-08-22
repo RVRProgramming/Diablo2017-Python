@@ -14,7 +14,7 @@ class Winch(Subsystem):
         self.led = wpilib.Relay(robotMap.LED)
 
     def climb(self, speed):
-        if ((speed < -robotMap.WINCHTHRESHOLD or speed > robotMap.WINCHTHRESHOLD) and wpilib.DriverStation.getInstance().isOperatorControl()):
+        if abs(speed) > robotMap.WINCHTHRESHOLD and wpilib.DriverStation.getInstance().isOperatorControl():
             self.winchL.set(speed)
             self.winchR.set(-speed)
         else:

@@ -32,7 +32,6 @@ class OI():
 
     def getBackwards(self): 
         return self.backwardsToggle
-    
 
     def getSlowDown(self):
         return self.gamepad.getRawButton(robotMap.SLOWDOWN)
