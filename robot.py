@@ -5,7 +5,7 @@ import wpilib
 class MyRobot(CommandBasedRobot):
         
     def robotInit(self):
-        super().__init__()
+        CommandBasedRobot.robotInit(self)
         from commands.groupDriveStraight import GroupDriveStraight
         from commands.teleDrive import TeleDrive
         from common.oi import oi

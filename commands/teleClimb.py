@@ -5,15 +5,18 @@ from subsystems.winch import winch
 
 
 class TeleClimb(Command):
+    initDuringExec = False
     
     def __init__(self):
         super().__init__()
         self.requires(winch)
         winch.ledPower(True)
-        from common.oi import oi
-        self.oi = oi
     
     def execute(self): 
+        if not self.initDuringExec:
+            from common.oi import oi
+            self.oi = oi
+            self.initDuringExec = True
         winch.climb(self.oi.getWinchSpeed())
         SmartDashboard.putNumber("Winch Throttle", self.oi.getWinchSpeed())
 
