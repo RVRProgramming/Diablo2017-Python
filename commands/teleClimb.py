@@ -9,12 +9,13 @@ class TeleClimb(Command):
     def __init__(self):
         super().__init__()
         self.requires(winch)
-    
-    def execute(self): 
         winch.ledPower(True)
         from common.oi import oi
-        winch.climb(oi.getWinchSpeed())
-        SmartDashboard.putNumber("Winch Throttle", oi.getWinchSpeed())
+        self.oi = oi
+    
+    def execute(self): 
+        winch.climb(self.oi.getWinchSpeed())
+        SmartDashboard.putNumber("Winch Throttle", self.oi.getWinchSpeed())
 
     def isFinished(self): 
         return False
