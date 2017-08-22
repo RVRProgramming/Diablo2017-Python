@@ -15,10 +15,12 @@ class AutoDriveStraight(Command):
 
     def initialize(self):
         self.startTime = time.time()
+        
     def  execute(self):
         driveBase.drive(0.75, 0.75)
 
     def isFinished(self): 
         return time.time() - self.startTime > (self.driveTime/1000)
+    
     def end(self):
         driveBase.drive(0, 0)
