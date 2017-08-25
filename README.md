@@ -1,2 +1,3 @@
 # Command-Python-Code-2017
-Important links: http://dl.bintray.com/robotpy/eclipse/ http://first.wpi.edu/FRC/roborio/release/eclipse/
+Required Repositories: https://github.com/RVRProgramming/New-Auto-Selector
+Important links: http://first.wpi.edu/FRC/roborio/release/eclipse/ http://dl.bintray.com/robotpy/eclipse/ 
