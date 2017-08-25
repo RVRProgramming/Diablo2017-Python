@@ -16,7 +16,7 @@ class AutoDriveStraight(Command):
     def initialize(self):
         self.startTime = time.time()
         
-    def  execute(self):
+    def execute(self):
         driveBase.drive(0.75, 0.75)
 
     def isFinished(self): 
