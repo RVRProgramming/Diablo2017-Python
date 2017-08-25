@@ -23,7 +23,7 @@ class MyRobot(CommandBasedRobot):
         self.teleDrive.start()
     def teleopPeriodic(self):
         super().teleopPeriodic()
-        self.oi.backwardsCheck();
+        self.oi.backwardsCheck()
     def testInit(self):
         super().testInit()
     def testPeriodic(self):

@@ -1,5 +1,4 @@
 from wpilib.command.command import Command
-from wpilib.smartdashboard import SmartDashboard
 
 from subsystems.winch import winch
 
@@ -18,7 +17,6 @@ class TeleClimb(Command):
             self.oi = oi
             self.initDuringExec = True
         winch.climb(self.oi.getWinchSpeed())
-        SmartDashboard.putNumber("Winch Throttle", self.oi.getWinchSpeed())
 
     def isFinished(self): 
         return False

@@ -1,6 +1,7 @@
 import ctre
 import wpilib
 from wpilib.command.subsystem import Subsystem
+from wpilib.smartdashboard import SmartDashboard
 
 from common import robotMap
 
@@ -20,6 +21,7 @@ class Winch(Subsystem):
         else:
             self.winchL.set(0)
             self.winchR.set(0)
+        SmartDashboard.putNumber("Winch Throttle", self.oi.getWinchSpeed())
 
     def ledPower(self, power):
         if power:
