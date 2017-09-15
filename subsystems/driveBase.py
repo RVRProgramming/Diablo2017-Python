@@ -9,7 +9,7 @@ class DriveBase(Subsystem):
     
     def __init__(self):
         super().__init__()
-        self.diabloDrive = RobotDrive(wpilib.Spark(robotMap.L1DRIVE), wpilib.Spark(robotMap.L2DRIVE), wpilib.Spark(robotMap.R1DRIVE), wpilib.Spark(robotMap.R2DRIVE))
+        self.diabloDrive = RobotDrive(wpilib.Spark(robotMap.L1DRIVE), wpilib.Spark(robotMap.L2DRIVE), wpilib.Spark(robotMap.R1DRIVE), wpilib.Spark(robotMap.R2DRIVE), squaredInputs=False)
         self.diabloDrive.frontLeftMotor.enableDeadbandElimination(True)
         self.diabloDrive.frontRightMotor.enableDeadbandElimination(True)
         self.diabloDrive.rearLeftMotor.enableDeadbandElimination(True)
