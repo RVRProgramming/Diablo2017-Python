@@ -16,6 +16,6 @@ class DriveBase(Subsystem):
         self.diabloDrive.rearRightMotor.enableDeadbandElimination(True)
 
     def drive(self, left, right):
-        self.diabloDrive.tankDrive(left, right, squaredInputs=False)
+        self.diabloDrive.tankDrive(-left, -right, squaredInputs=False)
         
 driveBase = DriveBase()
