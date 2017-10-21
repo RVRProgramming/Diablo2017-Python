@@ -17,6 +17,7 @@ class TeleClimb(Command):
             self.oi = oi
             self.initDuringExec = True
         winch.climb(self.oi.getWinchSpeed())
+        winch.ledPower(True)
 
     def isFinished(self): 
         return False
