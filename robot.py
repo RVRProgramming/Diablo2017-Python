@@ -1,7 +1,6 @@
 from commandbased import CommandBasedRobot
 import wpilib
 
-#from customSelectors.testSelector1 import TestSelector
 
 
 class MyRobot(CommandBasedRobot):
@@ -14,7 +13,6 @@ class MyRobot(CommandBasedRobot):
         self.autonomousCommand = GroupDriveStraight()
         self.teleDrive = TeleDrive()
         self.oi = oi
-       #self.testSelector = TestSelector()
     def disabledInit(self):
         pass
     def autonomousInit(self):
@@ -26,7 +24,6 @@ class MyRobot(CommandBasedRobot):
         super().teleopInit()
         self.autonomousCommand.cancel()
         self.teleDrive.start()
-        #self.testSelector.start()
     def teleopPeriodic(self):
         super().teleopPeriodic()
         self.oi.backwardsCheck()
