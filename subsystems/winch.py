@@ -1,9 +1,12 @@
+import pdb
+
 import ctre
 import wpilib
 from wpilib.command.subsystem import Subsystem
 from wpilib.smartdashboard import SmartDashboard
 
 from common import robotMap
+from wpilib.powerdistributionpanel import PowerDistributionPanel
 
 
 class Winch(Subsystem):
@@ -13,6 +16,7 @@ class Winch(Subsystem):
         self.winchL = ctre.CANTalon(robotMap.WINCHL)
         self.winchR = ctre.CANTalon(robotMap.WINCHR)
         self.led = wpilib.Relay(robotMap.LED)
+        self.pdp = PowerDistributionPanel(0)
 
 
     def climb(self, speed):
@@ -28,6 +32,8 @@ class Winch(Subsystem):
             self.oi = oi
             self.initInClimb = True
         SmartDashboard.putNumber("Winch Throttle", self.oi.getWinchSpeed())
+        SmartDashboard.putNumber("Left Motor", self.pdp.getCurrent(14))
+        SmartDashboard.putNumber("Right Motor", self.pdp.getCurrent(12))
 
     def ledPower(self, power):
         if power:
